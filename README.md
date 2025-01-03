@@ -1,0 +1,1 @@
+A web scraping project using R to extract over 9,000 court judgment details from https://www.cylaw.org/updates.html. Each judgment's content is retrieved, parsed, and saved into a structured CSV file, enabling efficient analysis and data management.
