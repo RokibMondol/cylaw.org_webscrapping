@@ -92,7 +92,6 @@ if (file.exists("updated_data.csv")) {
 }
 
 # Merge the original dataset with the updated dataset
-# Ensures new rows from the original dataset are included
 data <- original_data |> 
   left_join(updated_data, by = c("Date", "Court", "Title", "Link")) |> 
   mutate(Text = coalesce(Text, NA_character_))  # Retain existing 'Text'
@@ -123,7 +122,7 @@ global_pb <- progress_bar$new(
 while (TRUE) {
   # Filter out rows that have already been processed (Text is not NA)
   remaining_links <- data |> filter(is.na(Text))
-  #n <- 30 # Process 50 rows at a time
+  # Process n links at a time
   remaining_links <- slice(remaining_links, 1:min(nrow(remaining_links), n))
 
   # Check if there are no more links to process
