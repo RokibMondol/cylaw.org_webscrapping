@@ -122,7 +122,7 @@ global_pb <- progress_bar$new(
 while (TRUE) {
   # Filter out rows that have already been processed (Text is not NA)
   remaining_links <- data |> filter(is.na(Text))
-  # Process n links at a time
+  # Process n links at a time (where n is defined on line 21)
   remaining_links <- slice(remaining_links, 1:min(nrow(remaining_links), n))
 
   # Check if there are no more links to process
