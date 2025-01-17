@@ -139,8 +139,7 @@ while(TRUE){
   )
   
   ##______ Actuall Fetching of Court Text________________
-  mutate(data, 
-         na_ind = seq_along(Text) %in% which(is.na(Text))[1:rows]) |>
+  mutate(data, na_ind = seq_along(Text) %in% which(is.na(Text))[1:rows]) |>
     rowwise() |>
     mutate(
       Text =
